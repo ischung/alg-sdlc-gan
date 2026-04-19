@@ -1,3 +1,5 @@
+import { VisualizationCanvas } from './components/VisualizationCanvas'
+
 function App() {
   return (
     <div className="min-h-screen bg-slate-900 text-white">
@@ -13,7 +15,9 @@ function App() {
           <div
             id="visualization-canvas"
             className="flex-1 rounded-lg border border-slate-700 bg-slate-800 p-4"
-          />
+          >
+            <VisualizationCanvas />
+          </div>
 
           {/* StepControls 영역 */}
           <div
