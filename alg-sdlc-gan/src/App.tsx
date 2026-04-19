@@ -1,29 +1,30 @@
-import { VisualizationCanvas } from './components/VisualizationCanvas'
+import { useState } from 'react'
+import { AlgorithmSelector } from './components/AlgorithmSelector'
+import { SortPanel } from './features/sort/SortPanel'
+import type { Algorithm } from './types'
 
 function App() {
+  const [algorithm, setAlgorithm] = useState<Algorithm>(null)
+
+  const isSortAlgo = algorithm === 'bubble' || algorithm === 'selection' || algorithm === 'insertion'
+
   return (
     <div className="min-h-screen bg-slate-900 text-white">
-      <div className="mx-auto max-w-6xl p-4">
+      <div className="mx-auto max-w-4xl p-4 flex flex-col gap-4">
         {/* AlgorithmSelector 영역 */}
-        <div
-          id="algorithm-selector"
-          className="mb-4 rounded-lg border border-slate-700 bg-slate-800 p-4"
-        />
+        <div className="rounded-lg border border-slate-700 bg-slate-800 p-4">
+          <AlgorithmSelector current={algorithm} onSelect={setAlgorithm} />
+        </div>
 
-        <div className="flex flex-col gap-4 md:flex-row">
-          {/* VisualizationCanvas 영역 */}
-          <div
-            id="visualization-canvas"
-            className="flex-1 rounded-lg border border-slate-700 bg-slate-800 p-4"
-          >
-            <VisualizationCanvas />
-          </div>
-
-          {/* StepControls 영역 */}
-          <div
-            id="step-controls"
-            className="rounded-lg border border-slate-700 bg-slate-800 p-4 md:w-64"
-          />
+        {/* 메인 콘텐츠 */}
+        <div className="rounded-lg border border-slate-700 bg-slate-800 p-4">
+          {isSortAlgo ? (
+            <SortPanel algorithm={algorithm} />
+          ) : (
+            <div className="flex items-center justify-center h-40 text-slate-500 text-sm">
+              위에서 알고리즘을 선택하세요
+            </div>
+          )}
         </div>
       </div>
     </div>
