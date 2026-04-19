@@ -29,7 +29,7 @@ export function StepControls({
           onClick={onPrev}
           disabled={isIdle}
           aria-label="이전 스텝"
-          className="rounded-md bg-slate-700 px-3 py-1.5 text-sm disabled:opacity-40"
+          className="rounded-md bg-slate-700 px-3 py-2.5 min-h-[44px] text-sm disabled:opacity-40"
         >
           ◀
         </button>
@@ -39,7 +39,7 @@ export function StepControls({
             onClick={onPause}
             disabled={isIdle}
             aria-label="일시정지"
-            className="rounded-md bg-indigo-600 px-3 py-1.5 text-sm disabled:opacity-40"
+            className="rounded-md bg-indigo-600 px-3 py-2.5 min-h-[44px] text-sm disabled:opacity-40"
           >
             ⏸
           </button>
@@ -48,7 +48,7 @@ export function StepControls({
             onClick={onPlay}
             disabled={isIdle}
             aria-label="재생"
-            className="rounded-md bg-indigo-600 px-3 py-1.5 text-sm disabled:opacity-40"
+            className="rounded-md bg-indigo-600 px-3 py-2.5 min-h-[44px] text-sm disabled:opacity-40"
           >
             ▶
           </button>
@@ -58,7 +58,7 @@ export function StepControls({
           onClick={onNext}
           disabled={isIdle}
           aria-label="다음 스텝"
-          className="rounded-md bg-slate-700 px-3 py-1.5 text-sm disabled:opacity-40"
+          className="rounded-md bg-slate-700 px-3 py-2.5 min-h-[44px] text-sm disabled:opacity-40"
         >
           ▶▶
         </button>
@@ -73,7 +73,7 @@ export function StepControls({
           value={speed}
           disabled={isIdle || isPlaying}
           onChange={(e) => onSpeedChange(Number(e.target.value))}
-          aria-label="재생 속도"
+          aria-label="속도 조절"
           className="accent-indigo-500 disabled:opacity-40"
         />
       </label>
