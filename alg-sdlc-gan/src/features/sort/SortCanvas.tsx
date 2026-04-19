@@ -58,13 +58,16 @@ export function SortCanvas({ step, width = 600, height = 360 }: Props) {
   }, [step, width, height])
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={width}
-      height={height}
-      role="img"
-      aria-label="정렬 시각화 캔버스"
-      className="rounded-lg"
-    />
+    <div className="min-w-0 w-full">
+      <canvas
+        ref={canvasRef}
+        width={width}
+        height={height}
+        role="img"
+        aria-label="정렬 시각화 캔버스"
+        className="rounded-lg max-w-full"
+        style={{ width: '100%', maxWidth: `${width}px` }}
+      />
+    </div>
   )
 }
